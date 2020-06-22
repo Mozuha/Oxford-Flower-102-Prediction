@@ -1,7 +1,7 @@
 import base64
 import numpy as np
 import io
-import gc
+# import gc
 from PIL import Image
 import tensorflow.keras
 from tensorflow.keras import backend as K
@@ -13,15 +13,15 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-K.clear_session()
+# K.clear_session()
 
-# physical_devices = tf.config.experimental.list_physical_devices('GPU')
-# if len(physical_devices) > 0:
-#     for k in range(len(physical_devices)):
-#         tf.config.experimental.set_memory_growth(physical_devices[k], True)
-#         print('memory growth:', tf.config.experimental.get_memory_growth(physical_devices[k]))
-#     else:
-#         print('Not enough GPU hardware devices available')
+# # physical_devices = tf.config.experimental.list_physical_devices('GPU')
+# # if len(physical_devices) > 0:
+# #     for k in range(len(physical_devices)):
+# #         tf.config.experimental.set_memory_growth(physical_devices[k], True)
+# #         print('memory growth:', tf.config.experimental.get_memory_growth(physical_devices[k]))
+# #     else:
+# #         print('Not enough GPU hardware devices available')
 
 global label_names
 label_names = ['alpine sea holly', 'anthurium', 'artichoke', 'azalea', 'ball moss', 
@@ -89,4 +89,4 @@ def predict():
 
 if __name__ == '__main__':
     app.run(debug=False)
-    gc.collect()
+    # gc.collect()
