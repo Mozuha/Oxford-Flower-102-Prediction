@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
 import { Container, Button, makeStyles } from '@material-ui/core'
 
 import Prediction from './components/prediction'
-import Category from './components/category'
+import Category from './components/category2'
 
 const useStyles = makeStyles({
     root: {
