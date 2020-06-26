@@ -2,14 +2,13 @@ import base64
 import numpy as np
 import io
 from PIL import Image
-import tensorflow.keras
-from tensorflow.keras import backend as K
+# import tensorflow.keras
+# from tensorflow.keras import backend as K
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array
-from flask import request, Flask, make_response, jsonify, render_template
+from flask import request, Flask, jsonify
 from flask_cors import CORS
 
-# , static_folder='./build/static', static_url_path='/'
 app = Flask(__name__)
 CORS(app)
 
@@ -56,18 +55,12 @@ def preprocess_image(image, target_size):
 print(' * Loading Keras model...')
 get_model()
 
-# @app.route('/')
-# def index():
-#     return render_template('index.html')
-
 @app.route('/api/predict', methods=['POST'])
 def predict():
     message = request.get_json()
     encoded = message['image']
     decoded = base64.b64decode(encoded)
     image = Image.open(io.BytesIO(decoded))
-    # image = request.files['file'].read()
-    # image = Image.open(io.BytesIO(image))
     processed_image = preprocess_image(image, target_size=(224, 224))
 
     prediction = model.predict(processed_image)
@@ -75,21 +68,8 @@ def predict():
     idx2name = label_names[highest_pred]
     response = idx2name
 
-    # return build_actual_response(response)
     print(response)
     return jsonify(response)
-    # return response
-
-# def build_preflight_response():
-#     response = make_response()
-#     response.headers.add('Access-Control-Allow-Origin', '*')
-#     response.headers.add('Access-Control-Allow-Headers', '*')
-#     response.headers.add('Access-Control-Allow-Methods', '*')
-#     return response
-
-# def build_actual_response(response):
-#     response.headers.add('Access-Control-Allow-Origin', '*')
-#     return response
 
 if __name__ == '__main__':
     app.run()
