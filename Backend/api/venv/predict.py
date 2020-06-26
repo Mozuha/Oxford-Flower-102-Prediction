@@ -3,8 +3,8 @@ import numpy as np
 import io
 # import gc
 from PIL import Image
-import tensorflow.keras
-from tensorflow.keras import backend as K
+# import tensorflow.keras
+# from tensorflow.keras import backend as K
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array
 from flask import request, Flask, jsonify, render_template
