@@ -2,13 +2,15 @@ import base64
 import numpy as np
 import io
 from PIL import Image
-# import tensorflow.keras
-# from tensorflow.keras import backend as K
+import tensorflow.keras
+from tensorflow.keras import backend as K
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array
-from flask import request, Flask, jsonify
+from flask import request, Flask, jsonify, send_file, render_template
 from flask_cors import CORS
 
+# , static_folder='./build/static', static_url_path='/'
+# , static_folder='../../Frontend/build/static', template_folder='../../../Frontend/build'
 app = Flask(__name__)
 CORS(app)
 
@@ -55,6 +57,14 @@ def preprocess_image(image, target_size):
 print(' * Loading Keras model...')
 get_model()
 
+# @app.route('/')
+# def index():
+#     return render_template('index.html')
+
+# @app.route('/')
+# def home():
+#     return send_file('../../../Frontend/public/index.html')
+
 @app.route('/api/predict', methods=['POST'])
 def predict():
     message = request.get_json()
@@ -72,4 +82,4 @@ def predict():
     return jsonify(response)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=False, host='0.0.0.0')
