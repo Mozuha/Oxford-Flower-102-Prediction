@@ -67,7 +67,6 @@ const Predict = () => {
                 message.hasError = true
                 setIsLoading(false)
                 console.error(error)
-                alert(error)
             })
     }
 
@@ -82,7 +81,7 @@ const Predict = () => {
                 <Button variant='outlined' className={classes.button} onClick={predictImage}>Predict</Button>
             </Container>
             <Container className={classes.container}>
-                <h3>{isLoading ? <span>This is... <CircularProgress color='inherit' size={20} /></span> : <span>This is {predResult}</span>}</h3>
+                <h3>{isLoading ? <span>This is... <CircularProgress color='inherit' size={15} /></span> : <span>This is {predResult}</span>}</h3>
                 <img className={classes.img} src={image} />
             </Container>
         </Container>
