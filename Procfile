@@ -1,1 +1,1 @@
-web: cd Backend/api/venv/ && python predict.py
+web: cd Backend/api/venv/ && flask run
