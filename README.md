@@ -4,4 +4,3 @@ Predict an flower image with fine-tuned ResNet50 model based on [102 Category Fl
 
     cd Frontend
     yarn start-api  // run flask server
-    yarn start      // run react server
