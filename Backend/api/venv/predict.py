@@ -38,7 +38,7 @@ label_names = ['alpine sea holly', 'anthurium', 'artichoke', 'azalea', 'ball mos
 
 def get_model():
     global model
-    model = load_model('oxflower_local_waug_ResNet50_fullfine.h5')
+    model = load_model('oxflower_local_waug_ResNet50_fullfine_copy.h5')
     print(' * Model loaded')
 
 def preprocess_image(image, target_size):
