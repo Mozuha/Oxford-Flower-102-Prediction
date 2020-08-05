@@ -12,6 +12,16 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+K.clear_session()
+
+# physical_devices = tf.config.experimental.list_physical_devices('GPU')
+# if len(physical_devices) > 0:
+#     for k in range(len(physical_devices)):
+#         tf.config.experimental.set_memory_growth(physical_devices[k], True)
+#         print('memory growth:', tf.config.experimental.get_memory_growth(physical_devices[k]))
+#     else:
+#         print('Not enough GPU hardware devices available')
+
 global label_names
 label_names = ['alpine sea holly', 'anthurium', 'artichoke', 'azalea', 'ball moss', 
                 'balloon flower', 'bearberton daisy', 'bearded iris', 'bee balm', 
@@ -38,7 +48,7 @@ label_names = ['alpine sea holly', 'anthurium', 'artichoke', 'azalea', 'ball mos
 
 def get_model():
     global model
-    model = load_model('oxflower_local_waug_ResNet50_fullfine_copy.h5')
+    model = load_model('oxflower_mobilenetv2_L105.h5')
     print(' * Model loaded')
 
 def preprocess_image(image, target_size):

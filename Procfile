@@ -1,1 +1,1 @@
-web: cd Backend/api/venv/ && flask run
+web: cd Backend/api/venv/ && gunicorn predict:app
