@@ -1,6 +1,7 @@
 import base64
 import numpy as np
 import io
+import gc
 from PIL import Image
 import tensorflow.keras
 from tensorflow.keras import backend as K
@@ -87,3 +88,4 @@ def predict():
 
 if __name__ == '__main__':
     app.run(debug=False)
+    gc.collect()
