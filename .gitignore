@@ -28,3 +28,4 @@ Backend/api/venv/pyvenv.cfg
 Backend/api/venv/__pycache__
 Frontend/src/react-app-env.d.ts
 .vscode
+/Backend/api/venv/*.h5
