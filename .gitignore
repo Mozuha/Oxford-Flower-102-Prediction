@@ -26,6 +26,6 @@ Backend/api/venv/Lib
 Backend/api/venv/Scripts
 Backend/api/venv/pyvenv.cfg
 Backend/api/venv/__pycache__
+/Backend/api/venv/*.h5
 Frontend/src/react-app-env.d.ts
 .vscode
-/Backend/api/venv/*.h5
